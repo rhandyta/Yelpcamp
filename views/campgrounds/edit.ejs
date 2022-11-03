@@ -4,11 +4,11 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>New Campground</title>
+        <title>Edit Campground</title>
     </head>
     <body>
-        <h1>Create New Campground</h1>
-        <form action="/campgrounds" method="POST">
+        <h1>Edit Campground</h1>
+        <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST">
             <div class="">
                 <label for="title">Title</label>
                 <input
@@ -16,6 +16,7 @@
                     name="campground[title]"
                     id="title"
                     placeholder="title campground"
+                    value="<%= campground.title %>"
                 />
             </div>
             <div class="">
@@ -25,10 +26,11 @@
                     name="campground[location]"
                     id="location"
                     placeholder="location campground"
+                    value="<%= campground.location %>"
                 />
             </div>
             <button type="submit">Save</button>
         </form>
-        <a href="/campgrounds">All Campgrounds</a>
+        <p><a href="/campgrounds/<%= campground._id %> ">Back</a></p>
     </body>
 </html>
