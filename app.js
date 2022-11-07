@@ -7,6 +7,7 @@ const ExpressError = require("./utils/ExpressError");
 const {campgroundSchema} = require('./schemas')
 const methodOverride = require("method-override");
 const Campground = require("./models/campground");
+const Review = require('./models/review')
 
 mongoose.connect("mongodb://localhost:27017/yelp-camp", {
     useNewUrlParser: true,
@@ -97,6 +98,17 @@ app.delete(
         res.redirect("/campgrounds");
     })
 );
+
+
+app.post('/campgrounds/:id/reviews', catchAsync(async (req, res) => {
+    const campground = await Campground.findById(req.params.id);
+    const review = new Review(req.body.review);
+    campground.reviews.push(review);
+    await campground.save()
+    await review.save()
+    res.redirect(`/campgrounds/${campground._id}`)
+}))
+
 
 // Middleware
 // Error Handling
