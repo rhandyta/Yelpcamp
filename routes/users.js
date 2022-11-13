@@ -26,7 +26,7 @@ router.get('/login', (req, res) => {
   res.render('users/login')
 })
 
-router.post('/login', passport.authenticate('local', {failureFlash: true, failureRedirect: '/login'}) , async(req, res) => {
+router.post('/login', passport.authenticate('local', {failureFlash: true, failureRedirect: '/login'}) , (req, res) => {
   req.flash('success', 'Welcome back again!');
   res.redirect('/campgrounds')
 })
