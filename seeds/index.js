@@ -21,7 +21,7 @@ const seeder = async () => {
   await Campground.deleteMany({})
   for(let i = 0; i < 50; i++) {
     const random1000 = Math.floor(Math.random() * 1000);
-    const price = Math.floor(Math.random() * 20) + 1
+    const price = Math.floor(Math.random() * 20) + 10
     const camp = new Campground({
       author: '6370b8908531c43fd1fad961',
       title: `${sample(descriptors)} ${sample(places)}`,
