@@ -26,6 +26,10 @@ const seeder = async () => {
             author: "6370b8908531c43fd1fad961",
             title: `${sample(descriptors)} ${sample(places)}`,
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
+            geometry: {
+                type: "Point",
+                coordinates: [106.936824, -6.685482],
+            },
             images: [
                 {
                     url: "https://res.cloudinary.com/doquzb39w/image/upload/v1668771886/YelpCamp/myhirs9omjrwujdzgjwh.jpg",
