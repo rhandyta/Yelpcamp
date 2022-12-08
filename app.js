@@ -41,7 +41,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "/public")));
 app.use(mongoSanitize({
     replaceWith: '_'
 }))
@@ -65,7 +65,7 @@ const sessionConfig = {
     resave: false,
     saveUninitialized: true,
     cookie: {
-        httpOnly: false,
+        httpOnly: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         // secure: true,
         maxAge: 1000 * 60 * 60 * 24 * 7,
