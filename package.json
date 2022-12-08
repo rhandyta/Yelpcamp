@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "npm i && supervisor app.js"
+    "start": "supervisor app.js"
   },
   "keywords": [],
   "author": "",
