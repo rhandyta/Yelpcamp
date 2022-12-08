@@ -65,7 +65,7 @@ const sessionConfig = {
     resave: false,
     saveUninitialized: true,
     cookie: {
-        // httpOnly: true,
+        httpOnly: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         // secure: true,
         maxAge: 1000 * 60 * 60 * 24 * 7,
@@ -74,7 +74,7 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 app.use(flash());
-app.use(helmet({ crossOriginEmbedderPolicy: false }));
+app.use(helmet({ crossOriginEmbedderPolicy: true }));
 const scriptSrcUrls = [
     "https://stackpath.bootstrapcdn.com/",
     "https://api.tiles.mapbox.com/",
