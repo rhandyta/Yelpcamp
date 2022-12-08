@@ -74,7 +74,7 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 app.use(flash());
-app.use(helmet({ crossOriginEmbedderPolicy: true }));
+app.use(helmet({ crossOriginEmbedderPolicy: false }));
 const scriptSrcUrls = [
     "https://stackpath.bootstrapcdn.com/",
     "https://api.tiles.mapbox.com/",
@@ -154,6 +154,6 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render("error", { err });
 });
 
-app.listen(process.env.PORT, "0.0.0.0",() => {
+app.listen(process.env.PORT,() => {
     console.log("Service on port 3000");
 });
